@@ -1,7 +1,7 @@
-name: Test Go Application Dockerfile
+name: CI status
 on:
-#   push:
-#     branches: [ main ]
+  push:
+    branches: [ main ]
   pull_request:
     branches: [ main ]
     
