@@ -8,7 +8,7 @@ on:
     - cron: '0 5 * * 0'
     
 jobs:
-  testDocerfile:
+  testDockerfile:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -30,4 +30,4 @@ jobs:
           SLACK_COLOR: ${{ job.status }}
           SLACK_MESSAGE: 'Dockerfile failure :boom:'
           SLACK_TITLE: ${{ github.event.repository.name }}
-        
+          SLACK_ICON: https://avatars.githubusercontent.com/sderohan?size=48   
