@@ -21,6 +21,7 @@ jobs:
          docker run --rkm hello-go:test  
   
   notification:
+    needs: [ testDocerfile ]
     name: Build failure Notification
     runs-on: ubuntu-latest
     steps:
