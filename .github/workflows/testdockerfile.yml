@@ -18,7 +18,7 @@ jobs:
          echo "Building docker image............."
          docker build . -t hello-go:test
          echo "Running docker image.............."
-         docker run --rm hello-go:test  
+         docker run --rtm hello-go:test  
   
       - name: Build Notification
         uses: rtCamp/action-slack-notify@v2
@@ -30,4 +30,4 @@ jobs:
           SLACK_COLOR: ${{ job.status }}
           SLACK_MESSAGE: 'Dockerfile failure :boom:'
           SLACK_TITLE: ${{ github.event.repository.name }}
-          SLACK_ICON: https://avatars.githubusercontent.com/sderohan?size=48   
+          SLACK_ICON: https://avatars.githubusercontent.com/${{ github.actor }}?size=48   
