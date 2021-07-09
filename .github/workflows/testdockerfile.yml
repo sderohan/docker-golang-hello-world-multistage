@@ -18,7 +18,7 @@ jobs:
          echo "Building docker image............."
          docker build . -t hello-go:test
          echo "Running docker image.............."
-         docker run --rtm hello-go:test  
+         docker run --rm hello-go:test  
   
       - name: Build Notification
         uses: rtCamp/action-slack-notify@v2
