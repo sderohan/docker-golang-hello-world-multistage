@@ -20,20 +20,14 @@ jobs:
          echo "Running docker image.............."
          docker run --rkm hello-go:test  
   
-  notification:
-    needs: [ testDocerfile ]
-    name: Build failure Notification
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build Notification
-      uses: rtCamp/action-slack-notify@v2
-      if: failure()
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_USERNAME: "Github Bot"
-        SLACK_MSG_AUTHOR: $GITHUB_ACTOR
-        SLACK_COLOR: ${{ job.status }}
-        SLACK_MESSAGE: ${{ job.status }}
-        SLACK_TITLE: ${{ github.event.repository.name }}
+      - name: Build Notification
+        uses: rtCamp/action-slack-notify@v2
+        if: ${{ failure() }}
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: "Github Bot"
+          SLACK_MSG_AUTHOR: $GITHUB_ACTOR
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_MESSAGE: ${{ job.status }}
+          SLACK_TITLE: ${{ github.event.repository.name }}
         
