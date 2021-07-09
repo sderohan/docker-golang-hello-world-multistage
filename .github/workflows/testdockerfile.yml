@@ -11,9 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      -name: Test Docker image
-       run: |
-        echo "Building docker image............."
-        go build . -t hello-go:test
-        echo "Running docker image.............."
-        docker run --rm hello-go:test  
+      - name: Test Docker image
+        run: |
+         echo "Building docker image............."
+         go build . -t hello-go:test
+         echo "Running docker image.............."
+         docker run --rm hello-go:test  
