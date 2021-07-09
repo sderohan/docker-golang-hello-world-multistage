@@ -26,8 +26,8 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: "Github Bot"
-          SLACK_MSG_AUTHOR: $GITHUB_ACTOR
+          SLACK_MSG_AUTHOR: ${{ github.actor }}
           SLACK_COLOR: ${{ job.status }}
-          SLACK_MESSAGE: ${{ job.status }}
+          SLACK_MESSAGE: 'Dockerfile failure :boom:'
           SLACK_TITLE: ${{ github.event.repository.name }}
         
