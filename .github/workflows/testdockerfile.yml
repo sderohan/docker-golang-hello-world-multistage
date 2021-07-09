@@ -18,4 +18,21 @@ jobs:
          echo "Building docker image............."
          docker build . -t hello-go:test
          echo "Running docker image.............."
-         docker run --rm hello-go:test  
+         docker run --rkm hello-go:test  
+  
+  notification:
+    name: Build failure Notification
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build Notification
+      uses: rtCamp/action-slack-notify@v2
+      if: failure()
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_USERNAME: "Github Bot"
+        SLACK_MSG_AUTHOR: $GITHUB_ACTOR
+        SLACK_COLOR: ${{ job.status }}
+        SLACK_MESSAGE: ${{ job.status }}
+        SLACK_TITLE: ${{ github.event.repository.name }}
+        
