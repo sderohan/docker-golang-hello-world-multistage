@@ -5,6 +5,6 @@ RUN go env -w GO111MODULE=auto && go build -o app
 
 FROM alpine:latest
 WORKDIR /root/
-COPY --from=builder /go/src/app .
+COPY --from=builder /go/src/app/app .
 CMD ["./app"] 
 
