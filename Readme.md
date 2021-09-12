@@ -25,7 +25,7 @@ docker build . -t hello-go:latest
 
 4. Create the container of the recent image build which will run application inside it automatically:
 ```
- docker run --rm hello-go:test 
+ docker run --rm hello-go:latest 
 ```
 
 
