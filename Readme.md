@@ -1,7 +1,7 @@
 ![example workflow](https://github.com/sderohan/docker-golang-hello-world-multistage/actions/workflows/testdockerfile.yml/badge.svg)
 
 ## In this repo we have Multistage Dockerfile for the Hello World Go application.
-Also we have the cron enabled github CI to validate the dockerfile and if any failure occurs while building slack notification is triggered.
+Also we have the cron enabled github CI to validate the dockerfile build weekly and if any failure occurs while building slack notification is triggered.
 
 One can run this application using below commands.
 
@@ -23,7 +23,7 @@ docker build . -t hello-go:latest
 ```
 - you can check the image which got build on your system using `docker image ls` command
 
-4. Create the container of the recent image build and application will run inside it automatically:
+4. Create the container of the recent image build which will run application inside it automatically:
 ```
  docker run --rm hello-go:test 
 ```
