@@ -17,15 +17,15 @@ git clone https://github.com/sderohan/docker-golang-hello-world-multistage.git
 cd docker-golang-hello-world-multistage
 ```
 
-3. Build the docker image `hello-go is the name of the image and latest is the tag of the image`:
+3. Build the docker image `hello-go is name and latest is the tag of the docker image`:
 ```
 docker build . -t hello-go:latest
 ```
+- you can check the image which got build on your system using `docker image ls` command
 
 4. Create the container of the recent image build and application will run inside it automatically:
 ```
  docker run --rm hello-go:test 
 ```
-
 
 
